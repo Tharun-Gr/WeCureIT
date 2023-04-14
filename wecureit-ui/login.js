@@ -90,8 +90,7 @@ function LoginPage() {
       <Login />
       <MyComponent />
       <handleUsernameChange />
-      <MyComponent1 />
-     
+      <MyComponent1 />   
     </div>
   );
 }
