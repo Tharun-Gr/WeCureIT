@@ -1,115 +1,114 @@
 import React, { useState } from 'react';
 
-function HeadingSignUp() {
-  return (
-    <div>
-      <h1 style={{ margin: '20px' }}>Create a WeCureIt account,<br /></h1>
-    </div>
-  );
-}
-
-function SignUpButton() {
-  return (
-    <div>
-      <button style={{ border: "3px solid black", position: 'absolute', fontSize: '40px', top: 600, left: '42%' }}>SIGN UP</button>
-    </div>
-  );
-}
-
-function BackLogin() {
-  return (
-    <div>
-      <button style={{ border: "3px solid black", position: 'absolute', fontSize: '30px', top: 20, right: 20 }}>LOG IN</button>
-    </div>
-  );
-}
-
-function SignUp() {
+const SignUpPage = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [birthDate, setBirthdate] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState('');
   const [gender, setGender] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-    console.log('Phone Number:', phoneNumber);
-    console.log('Birthdate:', birthDate);
-    console.log('Gender:', gender);
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
-  };
+  const [address, setAddress] = useState('');
 
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div style={{ width: '400px', height: '100px', display: 'flex', flexDirection: 'column' }}>
-          <label htmlFor="firstName" style={{ marginBottom: '5px', fontSize: '25px' }}>FirstName:</label>
-          <input type="text" id="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} style={{ width: '200px', height: '25px'}} required />
+    <div style={{ margin: '20px' }}>
+    <div className="form-container">
+      <h1 style={{fontSize:'50px'}}>Create a new account,</h1>
+      <form onSubmit={SignUpPage}>
+        <div className="form-group">
+          <label htmlFor="firstName" style={{ fontSize: '30px' }}>First Name:</label>
+          <input
+            type="text"
+            id="firstName"
+            value={firstName}
+            onChange={(event) => setFirstName(event.target.value)} style={{ height: '30px',width: '200px', fontSize: '20px' }} required
+          />
         </div>
-
-        <div style={{ width: '400px', height: '100px', display: 'flex', flexDirection: 'column' }}>
-          <label htmlFor="lastName" style={{ marginBottom: '5px', fontSize: '25px'  }}>LastName:</label>
-          <input type="text" id="lastName" value={lastName} onChange={(event) => setLastName(event.target.value)} style={{ width: '200px' }} required />
+        <div className="form-group">
+          <label htmlFor="lastName" style={{ fontSize: '30px' }}>Last Name:</label>
+          <input
+            type="text"
+            id="lastName"
+            value={lastName}
+            onChange={(event) => setLastName(event.target.value)} style={{ height: '30px', width: '200px', fontSize: '20px' }} required
+          />
         </div>
-
-        <div style={{ width: '400px', height: '100px', display: 'flex', flexDirection: 'column' }}>
-          <label htmlFor="phoneNumber" style={{ marginBottom: '5px', fontSize: '25px'  }}>PhoneNumber:</label>
-          <input type="text" id="phoneNumber" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} style={{ width: '200px' }} required />
+        <div className="form-group">
+          <label htmlFor="phoneNumber" style={{ height: '30px', fontSize: '30px' }}>Phone Number:</label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            value={phoneNumber}
+            onChange={(event) => setPhoneNumber(event.target.value)} style={{ height: '30px', width: '200px', fontSize: '20px' }} required
+          />
         </div>
-
-        <div style={{ width: '400px', height: '100px', display: 'flex', flexDirection: 'column' }}>
-          <label htmlFor="birthDate" style={{ marginBottom: '5px', fontSize: '25px'  }}>BirthDate:</label>
-          <input type="date" id="birthDate" value={birthDate} onChange={(event) => setBirthdate(event.target.value)} style={{ width: '200px' }} required />
+        <div className="form-group">
+          <label htmlFor="dateOfBirth" style={{ height: '30px', fontSize: '30px' }}>Date of Birth:</label>
+          <input
+            type="date"
+            id="dateOfBirth"
+            value={dateOfBirth}
+            onChange={(event) => setDateOfBirth(event.target.value)} style={{ height: '30px'}} required
+          />
         </div>
-
-        <div style={{ width: '400px', height: '100px', display: 'flex', flexDirection: 'column' }}>
-            <label htmlFor="gender">Gender:</label>
-            <select id="gender" value={gender} onChange={(event) => setGender(event.target.value)} style={{width: '200px'}} required>
-              <option value="">Select</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
+        <div className="form-group">
+          <label htmlFor="gender" style={{fontSize: '30px' }}>Gender:</label>
+          <select
+            id="gender"
+            value={gender}
+            onChange={(event) => setGender(event.target.value)} style={{ height: '30px'}} required>
+            <option value="">--Select--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
         </div>
-
-        <div style={{ width: '400px', height: '100px', display: 'flex', flexDirection: 'column' }}>
-          <label htmlFor="email" style={{ marginBottom: '5px', fontSize: '25px'  }}>Email:</label>
-          <input type="email" id="email" value={email} onChange={(event) => setEmail(event.target.value)} style={{ width: '200px' }} required />
+        <div className="form-group">
+          <label htmlFor="address" style={{ fontSize: '30px' }}>Address:</label>
+          <input
+            type="text"
+            id="address"
+            value={address}
+            onChange={(event) => setAddress(event.target.value)} style={{ height: '30px', width: '300px', fontSize: '20px' }} required
+          />
         </div>
-
-        <div style={{ width: '400px', height: '100px', display: 'flex', flexDirection: 'column' }}>
-          <label htmlFor="password" style={{ marginBottom: '5px', fontSize: '25px'  }}>Password:</label>
-          <input type="password" id="password" value={password} onChange={(event) => setPassword(event.target.value)} style={{ width: '200px' }} required />
+        <div className="form-group">
+          <label htmlFor="email" style={{ height: '30px', fontSize: '30px' }}>Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)} style={{ height: '30px', width: '200px', fontSize: '20px' }} required
+          />
         </div>
-
-        <div style={{ width: '400px', height: '100px', display: 'flex', flexDirection: 'column' }}>
-          <label htmlFor="confirmPassword" style={{ marginBottom: '5px', fontSize: '25px'  }}>Confirm Password:</label>
-          <input type="password" id="confirmPassword" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} style={{ width: '200px' }} required />
+        <div className="form-group">
+          <label htmlFor="password" style={{fontSize: '30px' }}>Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)} style={{ height: '30px',width: '200px', fontSize: '20px' }} required
+          />
         </div>
-
-        <button type="submit">Sign Up</button>
+        <div className="form-group">
+          <label htmlFor="confirmPassword" style={{fontSize: '30px' }}>Confirm Password:</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(event) => setConfirmPassword(event.target.value)} style={{ height: '30px', width: '200px', fontSize: '20px' }} required
+          />
+        </div>
+        <button style={{ border: "3px solid black", margin: '50px 150px auto', display: 'block', fontSize: '30px'}} type="submit">Sign Up</button>
       </form>
     </div>
-  );
-}
-
-function PatientProfile() {
-  return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-      <HeadingSignUp />
-      <SignUp />
-      <SignUpButton />
-      <BackLogin />
+    <div>
+      <button style={{ border: "3px solid black", position: 'absolute', fontSize: '30px', top: 40, right: 40 }}>LOG IN</button>
+    </div>
     </div>
   );
-}
+};
 
-export default PatientProfile;
+export default SignUpPage;
