@@ -54,4 +54,12 @@ public class Facility {
     @JsonManagedReference(value = "facility-room")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Room> rooms;
+
+    @ManyToMany(cascade = { CascadeType.MERGE })
+    @JoinTable(
+        name = "specialization_facility",
+        joinColumns = { @JoinColumn(name = "facility_id") },
+        inverseJoinColumns = { @JoinColumn(name = "specialization_id") }
+    )
+    private List<Specialization> specializations;
 }

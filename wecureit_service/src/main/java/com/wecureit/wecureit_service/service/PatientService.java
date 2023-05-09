@@ -8,6 +8,8 @@ import com.wecureit.wecureit_service.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PatientService {
 
@@ -43,6 +45,10 @@ public class PatientService {
 
     public Patient getPatient(int id) {
         return patientRepository.findById(id).orElse(null);
+    }
+
+    public List<Patient> getPatients() {
+        return patientRepository.findAll();
     }
 
     private void insertValuesToPatient(Patient patient, Signup signup, User user) {

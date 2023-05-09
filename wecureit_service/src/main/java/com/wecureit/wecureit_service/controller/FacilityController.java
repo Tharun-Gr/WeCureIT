@@ -1,10 +1,13 @@
 package com.wecureit.wecureit_service.controller;
 
+import com.wecureit.wecureit_service.model.Doctor;
 import com.wecureit.wecureit_service.model.Facility;
 import com.wecureit.wecureit_service.service.FacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin("*")
 @RestController
@@ -23,6 +26,12 @@ public class FacilityController {
     public ResponseEntity<Facility> getFacility(@PathVariable("id") int id) {
         return ResponseEntity.ok().body(facilityService.getFacility(id));
     }
+
+    @GetMapping
+    public ResponseEntity<List<Facility>> getFacilities() {
+        return ResponseEntity.ok().body(facilityService.getFacilities());
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteFacility(@PathVariable("id") int id) {

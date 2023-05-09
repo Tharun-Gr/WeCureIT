@@ -1,10 +1,13 @@
 package com.wecureit.wecureit_service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,4 +23,8 @@ public class Specialization {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToMany(mappedBy="specializations")
+    @JsonIgnore
+    private List<Facility> facilities;
 }

@@ -4,8 +4,13 @@ import com.wecureit.wecureit_service.model.Doctor;
 import com.wecureit.wecureit_service.model.Signup;
 import com.wecureit.wecureit_service.model.User;
 import com.wecureit.wecureit_service.repository.DoctorRepository;
+import com.wecureit.wecureit_service.repository.WorkScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.sql.Date;
+import java.sql.Time;
+import java.util.List;
 
 @Service
 public class DoctorService {
@@ -18,6 +23,9 @@ public class DoctorService {
 
     @Autowired
     private DoctorRepository doctorRepository;
+
+    @Autowired
+    private WorkScheduleRepository workScheduleRepository;
 
     public Doctor createDoctor(Signup signup) {
         User user = userService.createUser(signup, "doctor");
@@ -53,5 +61,14 @@ public class DoctorService {
 
     public Doctor getDoctor(int id) {
         return doctorRepository.findById(id).orElse(null);
+    }
+
+    public List<Doctor> getDoctors() {
+        return doctorRepository.findAll();
+    }
+
+    public List<Doctor> getDoctorsByFacilitySpecDateTime(
+            int facilityId, int specializationId, Date date, Time time) {
+        return workScheduleRepository.findDoctorsByFacilityIdAndDateTime(facilityId, date, time, specializationId);
     }
 }

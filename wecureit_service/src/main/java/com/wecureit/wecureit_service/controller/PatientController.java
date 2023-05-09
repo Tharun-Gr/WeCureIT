@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/patient")
@@ -35,5 +37,10 @@ public class PatientController {
     @GetMapping("/{id}")
     public ResponseEntity<Patient> getPatient(@PathVariable("id") int id) {
         return ResponseEntity.ok().body(patientService.getPatient(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Patient>> getPatients() {
+        return ResponseEntity.ok().body(patientService.getPatients());
     }
 }
