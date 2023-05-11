@@ -1,5 +1,6 @@
 package com.wecureit.wecureit_service.service;
 
+import com.wecureit.wecureit_service.model.Facility;
 import com.wecureit.wecureit_service.model.Specialization;
 import com.wecureit.wecureit_service.repository.SpecializationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,9 @@ public class SpecializationService {
 
     public List<Specialization> getSpecializations() {
         return specializationRepository.findAll();
+    }
+
+    public List<Facility> findFacilitiesBySpecializationId(int specializationId) {
+        return specializationRepository.findFacilitiesBySpecializationId(specializationId);
     }
 }

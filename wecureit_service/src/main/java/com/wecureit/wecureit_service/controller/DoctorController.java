@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -47,15 +45,5 @@ public class DoctorController {
     @GetMapping
     public ResponseEntity<List<Doctor>> getDoctors() {
         return ResponseEntity.ok().body(doctorService.getDoctors());
-    }
-
-    @GetMapping("/facility-spec-date-time/{facillity_id}/{specilization_id}/{date}/{time}")
-    public ResponseEntity<List<Doctor>> getDoctorsByFacilitySpecDateTime(
-            @PathVariable("facillity_id") int facillityId,
-            @PathVariable("specilization_id") int specilizationId,
-            @PathVariable("date") Date date,
-            @PathVariable("time") Time time) {
-           return ResponseEntity.ok().body(doctorService.getDoctorsByFacilitySpecDateTime(
-                   facillityId, specilizationId, date, time));
     }
 }

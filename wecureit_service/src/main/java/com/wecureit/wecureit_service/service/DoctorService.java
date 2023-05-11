@@ -8,8 +8,6 @@ import com.wecureit.wecureit_service.repository.WorkScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.util.List;
 
 @Service
@@ -65,10 +63,5 @@ public class DoctorService {
 
     public List<Doctor> getDoctors() {
         return doctorRepository.findAll();
-    }
-
-    public List<Doctor> getDoctorsByFacilitySpecDateTime(
-            int facilityId, int specializationId, Date date, Time time) {
-        return workScheduleRepository.findDoctorsByFacilityIdAndDateTime(facilityId, date, time, specializationId);
     }
 }
