@@ -1,2 +1,3 @@
 # WeCureIT
-The goals and objectives of the project are to design, develop, and launch a website for WeCureIT that will provide an easy and efficient way for patients to book appointments with doctors and medical staff, and for doctors to manage their schedules and patient information.
+
+""" WeCureIt is a medical clinic's project focused on enhancing healthcare accessibility by developing a user-friendly website. The website allows patients to easily schedule appointments with preferred doctors, choose appointment durations, and manage their reservations. It also enables doctors to efficiently manage their schedules and facility preferences. Overall, this project aims to streamline clinic operations, improving both patient and doctor experiences, and is led by Prof. Renato Levy as the Product Owner """
