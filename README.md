@@ -2,6 +2,13 @@
 
 WeCureIt is a medical clinic project focused on enhancing healthcare accessibility by developing a user-friendly website. The website allows patients to easily schedule appointments with preferred doctors, choose appointment durations, and manage their reservations. It also enables doctors to efficiently manage their schedules and facility preferences. Overall, this project aims to streamline clinic operations, improving both patient and doctor experiences, and is led by Prof. Renato Levy as the Product Owner
 
+## Technology Stack
+
+● FIGMA - UI Screen designs
+● React Version 0.1.0 ( link: https://react-cn.github.io/react/downloads.html)
+● Spring Boot Version 3.0.5 (link: https://spring.io/)
+● My SQL Version 8.0 (https://www.mysql.com/downloads/)
+● Tomcat Server Version 9.0.74 (link: https://tomcat.apache.org/download-90.cgi)
 
 ## Key Features
 
